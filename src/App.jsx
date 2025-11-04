@@ -10,6 +10,7 @@ const initialState = {
 };
 
 const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+const apiUrl = import.meta.env.VITE_WEATHER_API_URL;
 
 function App() {
   const [input, setInput] = useState("");
@@ -26,7 +27,7 @@ function App() {
       setWeather({ ...initialState, loading: true });
 
       try {
-        const res = await axios.get("http://api.weatherstack.com/current", {
+        const res = await axios.get(apiUrl, {
           params: {
             access_key: apiKey,
             query: city,
